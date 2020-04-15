@@ -199,7 +199,7 @@ namespace Assets.Code._2.BUS.FunctionsController
         private void SetupNewBattle()
         {
             TotalCardOriginal = GameSystem.UserPlayer.UnoTypePlay.Equals(0) ? UnoCardSystem.UnoCards.Count - UnoCardSystem.QuantityCardExtension : UnoCardSystem.UnoCards.Count;
-
+            ObjController[16].SetActive(false);
             GameSystem.AddLoser(GameSystem.UserPlayer.UnoTypePlay);
             //GameSystem.UpdateResourceText(TextUI[3], TextUI[11]);//Cập nhật lại tiền và kim cương
             GameSystem.DisposeAllObjectChild(ObjController[3]);
@@ -341,9 +341,24 @@ namespace Assets.Code._2.BUS.FunctionsController
                 StartCoroutine(GameSystem.PlaySound(SoundClip[3], 0));//Play sound nếu tới lượt player
                 yield return new WaitForSeconds(delayTime);
                 IsControl = true;
+
+                AutoGetCard();
                 ShowImgSupport();
             }
             ObjController[11].transform.position = ObjectPositionCountCard[CurentRound].transform.position;//Di chuyển nút loading
+        }
+
+        /// <summary>
+        /// Tự bốc bài nếu bật chức năng
+        /// </summary>
+        private void AutoGetCard()
+        {
+            if (GameSystem.UserPlayer.UnoSettingFastGetCard && UserCards[0].Count >0)
+            {
+                var result = FindMatchCard(UserCards[0]);
+                if (result == null)
+                    GeneralFunctions(5);
+            }
         }
 
         /// <summary>
@@ -790,14 +805,14 @@ namespace Assets.Code._2.BUS.FunctionsController
                 if ((slotUser == 0 ? UserCards[slotUser][SlotCardSelected].NumberID : UserCards[slotUser][(int)slotThrow].NumberID) == 12)
                 {
                     StartCoroutine(GetCard(GetNextPlayer(CurentRound), 2, true));
-                    delayTime = UnoCardSystem.TimeDelayGetCard * 2;
+                    delayTime = UnoCardSystem.TimeDelayGetCard * 3;
                 }
                 //Lá bài bão tố
                 if ((slotUser == 0 ? UserCards[slotUser][SlotCardSelected].NumberID : UserCards[slotUser][(int)slotThrow].NumberID) == 14)
                 {
                     var createTornado = StartTornadoCard(GetNextPlayer(CurentRound), (slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType));
                     StartCoroutine(GetTornadoCard(GetNextPlayer(CurentRound), createTornado));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeMoveCard) * createTornado.Count;
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeMoveCard) * (createTornado.Count+1);
                     StartCoroutine(NextPlayer(2, delayTime));
                     goto BaoTo;
                 }
@@ -806,7 +821,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 {
                     var count = UserCards[slotUser].Count(x => x.ColorType.Equals(slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType));
                     StartCoroutine(ThrowAllCardByColor(slotUser, (slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType)));
-                    delayTime = (UnoCardSystem.DelayTimeMoveCard) * count;
+                    delayTime = (UnoCardSystem.DelayTimeMoveCard) * (count+1);
                     StartCoroutine(NextPlayer(1, delayTime));
                     goto XaBai;
                 }
@@ -814,7 +829,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 if ((slotUser == 0 ? UserCards[slotUser][SlotCardSelected].NumberID : UserCards[slotUser][(int)slotThrow].NumberID) == 18)
                 {
                     StartCoroutine(GetCard(GetNextPlayer(CurentRound), 4, true));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * 4;
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * 5;
                 }
                 //Lá bài +4 mục tiêu
                 if ((slotUser == 0 ? UserCards[slotUser][SlotCardSelected].NumberID : UserCards[slotUser][(int)slotThrow].NumberID) == 20)
@@ -839,14 +854,14 @@ namespace Assets.Code._2.BUS.FunctionsController
                     }
 
                     StartCoroutine(GetCard(SlotVictim, 4, true));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * 4;
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * 5;
                 }
                 //Lá bài + ngẫu nhiên
                 if ((slotUser == 0 ? UserCards[slotUser][SlotCardSelected].NumberID : UserCards[slotUser][(int)slotThrow].NumberID) == 21)
                 {
                     var quantityCardGet = UnityEngine.Random.Range(UnoCardSystem.MinRandomPustCardToVictim, UnoCardSystem.MaxRandomPustCardToVictim + 1);
                     StartCoroutine(GetCard(GetNextPlayer(CurentRound), quantityCardGet, true));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * quantityCardGet;
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * (quantityCardGet+1);
                 }
                 if (slotUser == 0)
                 {
@@ -1033,7 +1048,7 @@ namespace Assets.Code._2.BUS.FunctionsController
             yield return null;
 
             GameSystem.ControlFunctions.PutRanking();
-            if(GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
+            if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
                 ADS.RequestInterstitial();
         }
 

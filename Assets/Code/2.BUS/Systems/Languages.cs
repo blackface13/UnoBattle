@@ -387,6 +387,7 @@ public static class Languages {
         lang[342] = "Cách chơi";
         lang[343] = "Lá bài đổi màu +4: Bạn có quyền lựa chọn màu sắc cho lượt tiếp theo, đồng thời buộc người chơi tiếp theo bốc 4 lá bài và mất lượt";
         lang[344] = "Thông tin cách chơi";
+        lang[345] = "Tự bốc bài khi không có lá phù hợp";
 
         //Thông tin chỉ số
         lang[700] = "+{0} Sát thương vật lý";
@@ -757,6 +758,7 @@ public static class Languages {
         lang[342] = "Introduction";
         lang[343] = "Change color +4: allow you choose a color for next round, forced next player get 4 card and skip their round";
         lang[344] = "Informations";
+        lang[345] = "Fast get card";
 
         //Thông tin chỉ số
         lang[700] = "+{0} Attack physic";

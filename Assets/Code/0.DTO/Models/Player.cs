@@ -20,6 +20,7 @@ namespace Assets.Code._0.DTO.Models
         public byte UnoBGColorB = 63;
         public bool UnoSettingFastPush;
         public bool UnoSettingFastPass;
+        public bool UnoSettingFastGetCard;
         public bool UnoSettingImgSupport;
         public int UnoBasicWinRound;
         public int UnoBasicLoseRound;

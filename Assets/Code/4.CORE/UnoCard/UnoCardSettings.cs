@@ -36,6 +36,7 @@ namespace Assets.Code._4.CORE.UnoCard
             TextUI[4].text = Languages.lang[323];// = "Fast pass round";
             TextUI[5].text = Languages.lang[324];// = "Hỗ trợ hiển thị lá bài được đánh";
             TextUI[6].text = Languages.lang[59];// = "ngôn ngữ";
+            TextUI[7].text = Languages.lang[345];// = "Tự bốc bài khi ko có lá phù hợp";
         }
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace Assets.Code._4.CORE.UnoCard
             ObjectController[1].SetActive(GameSystem.UserPlayer.UnoSettingFastPush);
             ObjectController[4].SetActive(GameSystem.UserPlayer.UnoSettingFastPass);
             ObjectController[5].SetActive(GameSystem.UserPlayer.UnoSettingImgSupport);
+            ObjectController[6].SetActive(GameSystem.UserPlayer.UnoSettingFastGetCard);
         }
 
         /// <summary>
@@ -84,6 +86,10 @@ namespace Assets.Code._4.CORE.UnoCard
                     break;
                 case 8://Chức năng hỗ trợ hiển thị
                     GameSystem.UserPlayer.UnoSettingImgSupport = !GameSystem.UserPlayer.UnoSettingImgSupport;
+                    GetParameterSetting();
+                    break;
+                case 9://Chức năng Fast get card
+                    GameSystem.UserPlayer.UnoSettingFastGetCard = !GameSystem.UserPlayer.UnoSettingFastGetCard;
                     GetParameterSetting();
                     break;
             }
