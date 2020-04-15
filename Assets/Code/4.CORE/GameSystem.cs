@@ -27,6 +27,8 @@ public static class GameSystem
 
     public static int TotalRoundPlay = 0;
 
+    public static string AppVersion;
+
     #region Khởi tạo variable Confirm Box 
     private static GameObject ConfirmBox; //Confirm box
     private static Button ConfirmBoxOK; //Button OK của confirm box
@@ -60,7 +62,7 @@ public static class GameSystem
         SetupConfirmBox();
         SetupMessage();
         SetupInforBox();
-
+        AppVersion = Application.version;
         if (Sound == null)
             Sound = MessageCanvas.transform.GetChild(1).GetComponent<AudioSource>();
     }
