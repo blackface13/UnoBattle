@@ -238,15 +238,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721199489030834479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9159a4c2007cc0a4c9d3d6c3c025b28e, type: 3}
+  m_Script: {fileID: 11500000, guid: 87220c6e7b3462343abbca686a0f67d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topColor:
     serializedVersion: 2
-    rgba: 4278246655
+    rgba: 4278249471
   bottomColor:
     serializedVersion: 2
-    rgba: 4278547694
+    rgba: 4278219263
 --- !u!114 &4902933004976843676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4634134208957880174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c863b74ba3ddb4ea96b08b2afcbc9d, type: 3}
+  m_Script: {fileID: 11500000, guid: ad280ba4a3d1f694d926618119329057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectController: []
@@ -406,15 +406,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7909336338443613554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9159a4c2007cc0a4c9d3d6c3c025b28e, type: 3}
+  m_Script: {fileID: 11500000, guid: 553a7994af26b8a4ab30671f1c77f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topColor:
     serializedVersion: 2
-    rgba: 4278246655
+    rgba: 4278249471
   bottomColor:
     serializedVersion: 2
-    rgba: 4278547694
+    rgba: 4278219263
 --- !u!114 &7322082388497162635
 MonoBehaviour:
   m_ObjectHideFlags: 0

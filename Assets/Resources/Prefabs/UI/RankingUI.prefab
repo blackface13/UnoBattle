@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2127947582118857139}
   - component: {fileID: 7918899821123470602}
   - component: {fileID: 4294716089089287544}
+  - component: {fileID: 7559033728811994656}
   m_Layer: 5
   m_Name: NamePlayer
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -77,6 +78,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Fast Push
+--- !u!114 &7559033728811994656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177195220641507289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1450496213518965106
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,15 +181,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450496213518965106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9159a4c2007cc0a4c9d3d6c3c025b28e, type: 3}
+  m_Script: {fileID: 11500000, guid: 553a7994af26b8a4ab30671f1c77f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topColor:
     serializedVersion: 2
-    rgba: 4278246655
+    rgba: 4278249471
   bottomColor:
     serializedVersion: 2
-    rgba: 4278547694
+    rgba: 4278219263
 --- !u!114 &8496077585961089985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,15 +366,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6638602053272053039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9159a4c2007cc0a4c9d3d6c3c025b28e, type: 3}
+  m_Script: {fileID: 11500000, guid: 553a7994af26b8a4ab30671f1c77f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topColor:
     serializedVersion: 2
-    rgba: 4278246655
+    rgba: 4278249471
   bottomColor:
     serializedVersion: 2
-    rgba: 4278547694
+    rgba: 4278219263
 --- !u!114 &6088819661732114902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1225242358091676060}
-  - component: {fileID: 8191298513160308530}
+  - component: {fileID: 9181784039470116742}
   m_Layer: 5
   m_Name: RankingUI
   m_TagString: Untagged
@@ -411,9 +427,9 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -274.86, y: 0.3300171}
-  m_SizeDelta: {x: 535.7, y: 60}
+  m_SizeDelta: {x: 535.7, y: 73.95}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &8191298513160308530
+--- !u!114 &9181784039470116742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +438,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8191298513160308531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4584c88452a9e459c3199c9ee2ffcb, type: 3}
+  m_Script: {fileID: 11500000, guid: c1c46c506c1469744b3cb16db2435b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectController: []

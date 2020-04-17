@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GradientMid
-  m_Shader: {fileID: 4800000, guid: 4164a3d4bbc93b74195eabfd3437e739, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5b63a5f5d15792b4eb43e9a37f546103, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

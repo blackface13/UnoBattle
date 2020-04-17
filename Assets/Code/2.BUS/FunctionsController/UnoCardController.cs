@@ -57,6 +57,7 @@ namespace Assets.Code._2.BUS.FunctionsController
         #endregion
 
         #region Initialize
+
         void Start()
         {
             SetupPositionOriginal();
@@ -342,23 +343,27 @@ namespace Assets.Code._2.BUS.FunctionsController
                 yield return new WaitForSeconds(delayTime);
                 IsControl = true;
 
-                AutoGetCard();
-                ShowImgSupport();
-            }
-            ObjController[11].transform.position = ObjectPositionCountCard[CurentRound].transform.position;//Di chuyển nút loading
-        }
-
-        /// <summary>
-        /// Tự bốc bài nếu bật chức năng
-        /// </summary>
-        private void AutoGetCard()
-        {
-            if (GameSystem.UserPlayer.UnoSettingFastGetCard && UserCards[0].Count >0)
-            {
+                //Tìm xem có lá bài nào có thể đánh dc ko để show anim bốc bài
                 var result = FindMatchCard(UserCards[0]);
                 if (result == null)
+                {
+                    ObjController[21].SetActive(true);
+                    ObjController[21].GetComponent<Animator>().SetTrigger("GetCard");
+                }
+
+                //Tự bốc bài nếu bật chức năng
+                if (GameSystem.UserPlayer.UnoSettingFastGetCard && UserCards[0].Count > 0 && result == null)
+                {
                     GeneralFunctions(5);
+                ObjController[21].SetActive(false);
+                }
+
+                ShowImgSupport();
             }
+            else
+                ObjController[21].SetActive(false);
+
+            ObjController[11].transform.position = ObjectPositionCountCard[CurentRound].transform.position;//Di chuyển nút loading
         }
 
         /// <summary>
@@ -812,7 +817,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 {
                     var createTornado = StartTornadoCard(GetNextPlayer(CurentRound), (slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType));
                     StartCoroutine(GetTornadoCard(GetNextPlayer(CurentRound), createTornado));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeMoveCard) * (createTornado.Count+1);
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeMoveCard) * (createTornado.Count + 1);
                     StartCoroutine(NextPlayer(2, delayTime));
                     goto BaoTo;
                 }
@@ -821,7 +826,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 {
                     var count = UserCards[slotUser].Count(x => x.ColorType.Equals(slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType));
                     StartCoroutine(ThrowAllCardByColor(slotUser, (slotUser == 0 ? UserCards[slotUser][SlotCardSelected].ColorType : UserCards[slotUser][(int)slotThrow].ColorType)));
-                    delayTime = (UnoCardSystem.DelayTimeMoveCard) * (count+1);
+                    delayTime = (UnoCardSystem.DelayTimeMoveCard) * (count + 1);
                     StartCoroutine(NextPlayer(1, delayTime));
                     goto XaBai;
                 }
@@ -861,7 +866,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 {
                     var quantityCardGet = UnityEngine.Random.Range(UnoCardSystem.MinRandomPustCardToVictim, UnoCardSystem.MaxRandomPustCardToVictim + 1);
                     StartCoroutine(GetCard(GetNextPlayer(CurentRound), quantityCardGet, true));
-                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * (quantityCardGet+1);
+                    delayTime = (UnoCardSystem.TimeDelayGetCard + UnoCardSystem.DelayTimeCreateCard) * (quantityCardGet + 1);
                 }
                 if (slotUser == 0)
                 {
