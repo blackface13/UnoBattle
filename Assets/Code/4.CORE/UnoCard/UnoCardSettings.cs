@@ -21,7 +21,6 @@ namespace Assets.Code._4.CORE.UnoCard
             GetParameterSetting();
             CurentColor.color = new Color32(GameSystem.UserPlayer.UnoBGColorR, GameSystem.UserPlayer.UnoBGColorG, GameSystem.UserPlayer.UnoBGColorB, 1);
             ObjectController[3].GetComponent<Image>().color = new Color32(GameSystem.UserPlayer.UnoBGColorR, GameSystem.UserPlayer.UnoBGColorG, GameSystem.UserPlayer.UnoBGColorB, 255);
-            ADS.HideBanner();
         }
 
         /// <summary>
@@ -60,7 +59,8 @@ namespace Assets.Code._4.CORE.UnoCard
                 case 0://Đóng form
                     //DataUserController.SaveUserInfor();
                     ObjectController[0].SetActive(false);
-                    ADS.RequestBanner(0);
+            ADS.ShowBanner();
+                    //ADS.RequestBanner(0);
                     break;
                 case 1://Đóng UI color picker
                     ObjectController[2].SetActive(false);

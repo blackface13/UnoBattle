@@ -58,6 +58,8 @@ namespace Assets.Code._4.CORE.UnoCard
             {
                 case 0://Đóng UI
                     GameSystem.DisposePrefabUI(1);
+            ADS.ShowBanner();
+                   // ADS.RequestBanner(0);
                     break;
                 default:break;
             }

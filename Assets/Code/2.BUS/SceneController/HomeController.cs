@@ -6,12 +6,16 @@ using Facebook.MiniJSON;
 using UnityEngine.UI;
 using Assets.Code._0.DTO.Models;
 using Assets.Code._2.BUS.Misc;
+using Sirenix.OdinInspector;
 
 public class HomeController : MonoBehaviour
 {
-    [Header("Draw Curve")]
+    [TabGroup("Scene setting")]
+    [Title("Hiệu ứng di chuyển object")]
     public AnimationCurve moveCurve;
+    [TabGroup("Scene setting")]
     public Text[] TextUI;
+    [TabGroup("Scene setting")]
     public GameObject[] ObjectController;
     private float RankingRangeExpand = 570f;
     private float RankingPositionOriginal;
@@ -19,7 +23,8 @@ public class HomeController : MonoBehaviour
     private List<GameObject> ObjectRanking = new List<GameObject>();
     void Start()
     {
-        ADS.RequestBanner(0);
+            ADS.ShowBanner();
+        //ADS.RequestBanner(0);
         GameSystem.AnimCurve = moveCurve;
         #region Khởi tạo hoặc set Canvas thông báo cho Scene 
         try
@@ -61,6 +66,7 @@ public class HomeController : MonoBehaviour
                 StartCoroutine(WaitingCloseUI(0)); //Chờ đóng UI
                 break;
             case 1://UI setting
+                        ADS.HideBanner();
                 ObjectController[2].SetActive(true);
                 StartCoroutine(WaitingCloseUI(1)); //Chờ đóng UI
                 break;

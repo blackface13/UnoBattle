@@ -39,7 +39,7 @@ public static class ADS
         //MyID: ca-app-pub-1566576781523718/5781443867
         //Test: ca-app-pub-3940256099942544/6300978111
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string adUnitId = "ca-app-pub-1566576781523718/5781443867";
 #elif UNITY_IPHONE
                 string adUnitId = "ca-app-pub-8267828881809259/5079414900";
 #else
@@ -64,6 +64,11 @@ public static class ADS
         bannerView.Hide();
     }
 
+    public static void ShowBanner()
+    {
+        bannerView.Show();
+    }
+
     #endregion
 
     #region Quảng cáo xen kẽ
@@ -74,7 +79,7 @@ public static class ADS
         //MyID: ca-app-pub-1566576781523718/1842198853
         //Test: ca-app-pub-3940256099942544/1033173712
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        string adUnitId = "ca-app-pub-1566576781523718/1842198853";
 #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-8267828881809259/2863233533";
 #else

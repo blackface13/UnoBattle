@@ -465,6 +465,8 @@ public static class GameSystem
     /// <param name="type"></param>
     public static void InitializePrefabUI(int slot, string nameUI)
     {
+        if (slot == 1)
+            ADS.HideBanner();
         ObjectUI[slot] = (GameObject)MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/UI/" + nameUI), new Vector3(0, 0, 0), Quaternion.identity);
         ObjectUI[slot].GetComponent<Canvas>().worldCamera = Camera.main;
         ObjectUI[slot].GetComponent<Canvas>().planeDistance = 8;

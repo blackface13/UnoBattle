@@ -1,6 +1,7 @@
 ﻿using Assets.Code._0.DTO.Models;
 using Assets.Code._2.BUS.Misc;
 using Assets.Code._4.CORE.UnoCard;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,35 +16,54 @@ namespace Assets.Code._2.BUS.FunctionsController
     public class UnoCardController : MonoBehaviour
     {
         #region Variables
-        [Header("Draw Curve")]
+        [TabGroup("Scene setting")]
+        [Title("Hiệu ứng di chuyển object")]
         public AnimationCurve moveCurve;
-        private List<GameObject>[] ObjectsUserCard;
-        private List<UnoCardModel>[] UserCards;
+        [TabGroup("Scene setting")]
+        [Title("Các object chung")]
         public GameObject[] ObjController;
+        [TabGroup("Scene setting")]
+        [Title("Text UI chung")]
         public Text[] TextUI;
+        [TabGroup("Scene setting")]
+        public List<Image> ImgSupport;
+        [TabGroup("Thông số người chơi và AI")]
+        [Title("Bộ đếm lá bài ng chơi")]
         public Text[] TextCountCardPlayer;
+        [TabGroup("Thông số người chơi và AI")]
+        [Title("Object vị trí ng chơi")]
+        public GameObject[] ObjectPositionPlayer;
+        [TabGroup("Thông số người chơi và AI")]
+        [Title("Object vị trí bộ đếm")]
+        public GameObject[] ObjectPositionCountCard;
+        [TabGroup("Thông số người chơi và AI")]
+        [Title("Object chứa các lá bài")]
+        public GameObject[] ObjectGrpCardListPlayer;
         UnityEngine.Object[] SpritesCardImg;
-        private List<GameObject> CardsShowed;//Các object card đã bỏ xuống
-        private UnoCardModel LastCard;
-        private int SlotCardSelected = -1;//Vị trí bài đang chọn
-        private bool IsLeftToRight = true;//Hướng chơi bài
+        [TabGroup("Setup giá trị ban đầu")]
+        [Title("Vị trí lá bài ban đầu")]
+        public int SlotCardSelected;//Vị trí bài đang chọn
+        [TabGroup("Setup giá trị ban đầu")]
+        [Title("Hướng chơi theo kim đồng hồ")]
+        public bool IsLeftToRight;//Hướng chơi bài
+
         private int CurentColorType = 0;//0 = đỏ, 1 = vàng, 2 = lục, 3 = lam, 4: đa năng
         private int TornadoColor = 0;//Màu của lá bài lốc xoáy
         private bool IsControl = true;//Cho phép thao tác các button 
         private int TotalPlayer = 6;//Tổng số người chơi trong ván bài, kể cả AI
         private int CurentRound = 0;//Lượt chơi tới người nào. 0 = player
         private bool IsGetCard = false;//Lượt vừa rồi đã bốc bài hay chưa
-        public GameObject[] ObjectPositionPlayer;
-        public GameObject[] ObjectPositionCountCard;
-        public GameObject[] ObjectGrpCardListPlayer;
         private int TotalCardOriginal = 0;
         private Vector3[] PosOriginal;
         private int SlotPlyerWinner;//Slot người chơi thắng cuộc
         private Dictionary<int, int> RankingPoint;
-        public List<Image> ImgSupport;
         private bool Card4PlusVictim;//Sử dụng lá bài +4 chỉ định mục tiêu
         private int SlotVictim;//Slot user của lá bài +4 chỉ định mục tiêu
 
+        private List<GameObject>[] ObjectsUserCard;
+        private List<UnoCardModel>[] UserCards;
+        private List<GameObject> CardsShowed;//Các object card đã bỏ xuống
+        private UnoCardModel LastCard;
         //End game
         private bool IsStopGame = false;//Kết thúc game hay chưa
         private List<GameObject> ObjectRanking;
@@ -1145,8 +1165,9 @@ namespace Assets.Code._2.BUS.FunctionsController
                         ObjController[4].SetActive(false);
                         Card4PlusVictim = false;
                     }
-                    else
+                    else//Show victim để chọn
                     {
+                        ADS.HideBanner();
                         CurentColorType = colorType;
                         ObjController[1].GetComponent<Image>().color = UnoCardSystem.ClrsCard[CurentColorType];
                         ObjController[20].SetActive(true);
@@ -1177,6 +1198,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 ObjectPositionPlayer[i].transform.GetChild(1).gameObject.SetActive(false);
             }
             Card4PlusVictim = false;
+            ADS.ShowBanner();
         }
 
         /// <summary>
@@ -1254,6 +1276,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                         ObjController[4].SetActive(false);
                     break;
                 case 4://Mở UI tùy chọn cách chơi
+                        ADS.HideBanner();
                     ObjController[9].SetActive(true);
                     StartCoroutine(WaitingForAction(0));
                     break;
