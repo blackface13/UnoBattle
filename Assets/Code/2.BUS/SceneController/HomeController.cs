@@ -278,7 +278,14 @@ public class HomeController : MonoBehaviour
         {
             // Resume the game - we're getting focus again
             Time.timeScale = 1;
-            StartCoroutine(WaitGetData());
+            if(!GameSystem.UserPlayer.IsLoginFB)
+            {
+                GameSystem.UserPlayer.IsLoginFB = true;
+                GameSystem.SaveUserData();
+                var scnLoad = new SceneLoad();
+                scnLoad.Change_scene("HomeScene");
+            }
+            // StartCoroutine(WaitGetData());
         }
     }
 

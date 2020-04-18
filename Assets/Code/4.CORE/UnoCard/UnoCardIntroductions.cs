@@ -57,7 +57,7 @@ namespace Assets.Code._4.CORE.UnoCard
             switch(type)
             {
                 case 0://Đóng UI
-                    GameSystem.DisposePrefabUI(10);
+                    GameSystem.DisposePrefabUI(1);
                     break;
                 default:break;
             }

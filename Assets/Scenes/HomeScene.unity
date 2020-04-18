@@ -2066,6 +2066,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1315130917}
     m_Modifications:
+    - target: {fileID: 11292772, guid: b8c2b4f1b47d4b943acd819302163fff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -93.22269
+      objectReference: {fileID: 0}
+    - target: {fileID: 894028055, guid: b8c2b4f1b47d4b943acd819302163fff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -110.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638443104935768465, guid: b8c2b4f1b47d4b943acd819302163fff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -103.59958
+      objectReference: {fileID: 0}
     - target: {fileID: 2638443105358549690, guid: b8c2b4f1b47d4b943acd819302163fff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2432,7 +2445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: 104.68}
+  m_AnchoredPosition: {x: -280.00003, y: 104.68}
   m_SizeDelta: {x: 557.3, y: 870.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1705962392
@@ -2498,9 +2511,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705962392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9159a4c2007cc0a4c9d3d6c3c025b28e, type: 3}
+  m_Script: {fileID: 11500000, guid: 553a7994af26b8a4ab30671f1c77f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topColor:
+    serializedVersion: 2
+    rgba: 4278249471
+  bottomColor:
+    serializedVersion: 2
+    rgba: 4278219263
 --- !u!114 &1705962396
 MonoBehaviour:
   m_ObjectHideFlags: 0

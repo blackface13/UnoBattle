@@ -18,9 +18,9 @@ public static class ADS
     public static void Initialize()
     {
 #if UNITY_ANDROID
-        string appId = "ca-app-pub-8267828881809259~6392496577";
+        string appId = "ca-app-pub-1566576781523718~7094525534";
 #elif UNITY_IPHONE
-                string appId = "ca-app-pub-8267828881809259~6392496577";
+                string appId = "ca-app-pub-1566576781523718~7094525534";
 #else
         string appId = "unexpected_platform";
 #endif
@@ -36,10 +36,10 @@ public static class ADS
     /// <param name="type">0: top, 1: bot</param>
     public static void RequestBanner(int type)
     {
-        //MyID: ca-app-pub-8267828881809259/5079414900
+        //MyID: ca-app-pub-1566576781523718/5781443867
         //Test: ca-app-pub-3940256099942544/6300978111
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-8267828881809259/5079414900";
+        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IPHONE
                 string adUnitId = "ca-app-pub-8267828881809259/5079414900";
 #else
@@ -71,15 +71,17 @@ public static class ADS
 
     public static void RequestInterstitial()
     {
-        //MyID: ca-app-pub-8267828881809259/2863233533
+        //MyID: ca-app-pub-1566576781523718/1842198853
         //Test: ca-app-pub-3940256099942544/1033173712
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-8267828881809259/2863233533";
+        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-8267828881809259/2863233533";
 #else
         string adUnitId = "unexpected_platform";
 #endif
+        //interstitial = null;
+
 
         // Initialize an InterstitialAd.
         interstitial = new InterstitialAd(adUnitId);
@@ -100,7 +102,6 @@ public static class ADS
         // Load the interstitial with the request.
         interstitial.LoadAd(request);
 
-        interstitial.Destroy();
     }
 
     public static void HandleOnAdLoaded(object sender, EventArgs args)
