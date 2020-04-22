@@ -73,12 +73,16 @@
     <Compile Include="Assets\Code\2.BUS\FunctionsController\UnoCardController.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\RankingUI.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\UnoCardRankGameEnding.cs" />
+    <Compile Include="Assets\Code\2.BUS\Misc\VoteBoxController.cs" />
+    <Compile Include="Assets\Code\2.BUS\Misc\VoteFunctionController.cs" />
     <Compile Include="Assets\Code\2.BUS\SceneController\HomeController.cs" />
     <Compile Include="Assets\Code\2.BUS\SceneController\LoadingController.cs" />
+    <Compile Include="Assets\Code\2.BUS\Systems\GlobalVariables.cs" />
     <Compile Include="Assets\Code\2.BUS\Systems\Languages.cs" />
     <Compile Include="Assets\Code\2.BUS\Systems\SceneLoad.cs" />
     <Compile Include="Assets\Code\3.DAO\API.cs" />
     <Compile Include="Assets\Code\3.DAO\ResponseModel.cs" />
+    <Compile Include="Assets\Code\3.DAO\SyncData.cs" />
     <Compile Include="Assets\Code\4.CORE\ControlFunctions.cs" />
     <Compile Include="Assets\Code\4.CORE\GameSystem.cs" />
     <Compile Include="Assets\Code\4.CORE\Securitys.cs" />
@@ -399,8 +403,14 @@
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>H:/Projects/GameDevelop/UnoBattle/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    <Reference Include="Sirenix.OdinInspector.Attributes">
+      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.OdinInspector.Editor">
+      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization.Config">
+      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.dll</HintPath>
@@ -411,14 +421,8 @@
     <Reference Include="Sirenix.Utilities.Editor">
       <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.OdinInspector.Editor">
-      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="Sirenix.Serialization.Config">
-      <HintPath>H:/Projects/GameDevelop/UnoBattle/Assets/Plugins/Sirenix/Assemblies/Sirenix.Serialization.Config.dll</HintPath>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>H:/Projects/GameDevelop/UnoBattle/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Unity/2018.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

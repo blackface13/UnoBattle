@@ -224,7 +224,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                         ObjController[21].SetActive(false);//Ẩn anim bốc bài
             EndCard = false;
             GameSystem.TotalRoundPlay++;
-            if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
+            //if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
                 ADS.RequestInterstitial();
             TotalCardOriginal = GameSystem.UserPlayer.UnoTypePlay.Equals(0) ? UnoCardSystem.UnoCards.Count - UnoCardSystem.QuantityCardExtension : UnoCardSystem.UnoCards.Count;
             ObjController[16].SetActive(false);
