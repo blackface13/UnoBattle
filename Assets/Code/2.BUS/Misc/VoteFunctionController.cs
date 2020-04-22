@@ -107,7 +107,7 @@ public class VoteFunctionController : MonoBehaviour
     private void VoteFunction(int type)
     {
         StartCoroutine(SyncData.VoteFunction(type.Equals(0) ? "AddNewCard" : "AddNewAI"));
-        GameSystem.DisposePrefabUI(13);
+        GameSystem.DisposePrefabUI(2);
         GameSystem.ControlFunctions.ShowMessage(Languages.lang[354]);
     }
 }

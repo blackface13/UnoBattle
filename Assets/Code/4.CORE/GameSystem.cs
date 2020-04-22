@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Assets.Code._0.DTO.Models;
 using Assets.Code._4.CORE;
+using System.Linq;
 
 public static class GameSystem
 {
@@ -16,7 +17,7 @@ public static class GameSystem
     public static AudioSource Sound; //Control Âm thanh của skill
                                      //public static SettingModel Settings;//Setting game
     public static ControlFunctions ControlFunctions;
-    public static GameObject[] ObjectUI = new GameObject[2];
+    public static GameObject[] ObjectUI = new GameObject[4];
     public static Player UserPlayer;
     public static string FBID;
     private static readonly string StrData = "Data";
@@ -851,4 +852,19 @@ public static class GameSystem
         SaveUserData();
     }
     #endregion
+
+
+    /// <summary>
+    /// Check ký tự đặc biệt
+    /// </summary>
+    public static bool HasSpecialChar(string input)
+    {
+        string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+        foreach (var item in specialChar)
+        {
+            if (input.Contains(item)) return true;
+        }
+
+        return false;
+    }
 }

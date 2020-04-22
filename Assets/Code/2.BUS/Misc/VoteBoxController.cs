@@ -68,10 +68,12 @@ public class VoteBoxController : MonoBehaviour
         //Button vote
         BtnVote.onClick.AddListener(() =>
         {
-            if (HomeController != null)//Nếu giao diện đặt tại home
-            {
-                HomeController.GeneralFunctions(3);//Gọi show vote từ homecontroller
-            }
+            //if (HomeController != null)//Nếu giao diện đặt tại home
+            //{
+            //    HomeController.GeneralFunctions(3);//Gọi show vote từ homecontroller
+            //}
+
+            GameSystem.InitializePrefabUI(2, "VoteFunctionCanvasUI");
 
             //Set đã vote
             GameSystem.UserPlayer.VoteCode = GlobalVariables.VoteCode;

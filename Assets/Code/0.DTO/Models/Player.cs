@@ -22,6 +22,7 @@ namespace Assets.Code._0.DTO.Models
         public bool UnoSettingFastPass;
         public bool UnoSettingFastGetCard;
         public bool UnoSettingImgSupport;
+        public bool UnoSettingAutoPlay;
         public int UnoBasicWinRound;
         public int UnoBasicLoseRound;
         public int UnoBasicPoint;

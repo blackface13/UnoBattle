@@ -104,6 +104,7 @@ namespace Assets.Code._2.BUS.FunctionsController
             TextUI[2].text = UnoCardSystem.PlayersNumber[UnoCardSystem.PlayerNumberSlot].ToString();//Số người chơi
             ObjController[17].SetActive(true);//Hiển thị UI lựa chọn cược và người chơi
             //SetupNewBattle();
+            TextUI[11].text = Languages.lang[260] + ((GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint) != 0 ? (string.Format("{0:#,#}", (GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint))) : 0.ToString());//Update điểm số
         }
 
         /// <summary>
@@ -1085,6 +1086,8 @@ namespace Assets.Code._2.BUS.FunctionsController
             yield return new WaitForSeconds(UnoCardSystem.TimeDelayAIAction);
             IsControl = true;
             yield return null;
+
+            TextUI[11].text = Languages.lang[260] + ((GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint) != 0 ? (string.Format("{0:#,#}", (GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint))) : 0.ToString());//Update điểm số
 
             GameSystem.ControlFunctions.PutRanking();
             if (ADS.interstitial.IsLoaded())

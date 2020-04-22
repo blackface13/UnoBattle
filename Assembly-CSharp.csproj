@@ -71,6 +71,7 @@
     <Compile Include="Assets\Code\2.BUS\FunctionsController\ADS.cs" />
     <Compile Include="Assets\Code\2.BUS\FunctionsController\ParticlesHideControl.cs" />
     <Compile Include="Assets\Code\2.BUS\FunctionsController\UnoCardController.cs" />
+    <Compile Include="Assets\Code\2.BUS\Misc\InputNameController.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\RankingUI.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\UnoCardRankGameEnding.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\VoteBoxController.cs" />

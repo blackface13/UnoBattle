@@ -36,6 +36,7 @@ namespace Assets.Code._4.CORE.UnoCard
             TextUI[5].text = Languages.lang[324];// = "Hỗ trợ hiển thị lá bài được đánh";
             TextUI[6].text = Languages.lang[59];// = "ngôn ngữ";
             TextUI[7].text = Languages.lang[345];// = "Tự bốc bài khi ko có lá phù hợp";
+            TextUI[8].text = Languages.lang[355];// = "Tự động chơi";
         }
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace Assets.Code._4.CORE.UnoCard
             ObjectController[4].SetActive(GameSystem.UserPlayer.UnoSettingFastPass);
             ObjectController[5].SetActive(GameSystem.UserPlayer.UnoSettingImgSupport);
             ObjectController[6].SetActive(GameSystem.UserPlayer.UnoSettingFastGetCard);
+            ObjectController[7].SetActive(GameSystem.UserPlayer.UnoSettingAutoPlay);
         }
 
         /// <summary>
@@ -90,6 +92,10 @@ namespace Assets.Code._4.CORE.UnoCard
                     break;
                 case 9://Chức năng Fast get card
                     GameSystem.UserPlayer.UnoSettingFastGetCard = !GameSystem.UserPlayer.UnoSettingFastGetCard;
+                    GetParameterSetting();
+                    break;
+                case 10://Chức năng tự động chơi
+                    GameSystem.UserPlayer.UnoSettingAutoPlay = !GameSystem.UserPlayer.UnoSettingAutoPlay;
                     GetParameterSetting();
                     break;
             }

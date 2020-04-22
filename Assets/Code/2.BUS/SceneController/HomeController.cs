@@ -49,6 +49,12 @@ public class HomeController : MonoBehaviour
         //Ranking
         StartCoroutine(API.APIGetRanking(API.ServerRankingGetGlobal));
         StartCoroutine(ShowRanking());
+
+        //Nhập tên nếu tên đang trống
+        if(string.IsNullOrEmpty(GameSystem.UserPlayer.UserName))
+        {
+            GameSystem.InitializePrefabUI(3, "InputNameCanvasUI");
+        }
     }
 
     private void SetupText()
