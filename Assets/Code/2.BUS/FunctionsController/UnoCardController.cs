@@ -222,11 +222,11 @@ namespace Assets.Code._2.BUS.FunctionsController
         /// </summary>
         private void SetupNewBattle()
         {
-                        ObjController[21].SetActive(false);//Ẩn anim bốc bài
+            ObjController[21].SetActive(false);//Ẩn anim bốc bài
             EndCard = false;
             GameSystem.TotalRoundPlay++;
             //if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
-                ADS.RequestInterstitial();
+            ADS.RequestInterstitial();
             TotalCardOriginal = GameSystem.UserPlayer.UnoTypePlay.Equals(0) ? UnoCardSystem.UnoCards.Count - UnoCardSystem.QuantityCardExtension : UnoCardSystem.UnoCards.Count;
             ObjController[16].SetActive(false);
             GameSystem.AddLoser(GameSystem.UserPlayer.UnoTypePlay);
@@ -1279,7 +1279,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                         ObjController[4].SetActive(false);
                     break;
                 case 4://Mở UI tùy chọn cách chơi
-                        ADS.HideBanner();
+                    ADS.HideBanner();
                     ObjController[9].SetActive(true);
                     StartCoroutine(WaitingForAction(0));
                     break;
@@ -1298,7 +1298,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                             //Lựa chọn bài đổi màu
                             if (UserCards[0][SlotCardSelected].ColorType == 4)
                             {
-                                if (UserCards[0][SlotCardSelected].NumberID == 20)//Lá bài +4 chọn mục tiêu
+                                if (UserCards[0][SlotCardSelected].NumberID == 20 && UserCards[0].Count > 1)//Lá bài +4 chọn mục tiêu (Fix tạm lỗi đánh lá mục tiêu cuối cùng bị lỗi)
                                     Card4PlusVictim = true;
                                 ObjController[4].SetActive(true);
                             }
