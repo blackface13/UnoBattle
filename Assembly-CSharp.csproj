@@ -69,6 +69,7 @@
     <Compile Include="Assets\Code\0.DTO\Models\SettingModel.cs" />
     <Compile Include="Assets\Code\0.DTO\Models\UnoCardModel.cs" />
     <Compile Include="Assets\Code\2.BUS\FunctionsController\ADS.cs" />
+    <Compile Include="Assets\Code\2.BUS\FunctionsController\ADStartApp.cs" />
     <Compile Include="Assets\Code\2.BUS\FunctionsController\ParticlesHideControl.cs" />
     <Compile Include="Assets\Code\2.BUS\FunctionsController\UnoCardController.cs" />
     <Compile Include="Assets\Code\2.BUS\Misc\InputNameController.cs" />
@@ -175,8 +176,10 @@
     <Compile Include="Assets\HSVPicker\UI\SVBoxSlider.cs" />
     <Compile Include="Assets\HSVPicker\UtilityScripts\BoxSlider.cs" />
     <Compile Include="Assets\HSVPicker\UtilityScripts\HSVUtil.cs" />
+    <None Include="Assets\Resources\StartAppDataiOS.txt" />
     <None Include="Assets\UI\GradientMid.shader" />
     <None Include="Assets\HSVPicker\Resources\Shaders\Compute\GenerateSVTexture.compute" />
+    <None Include="Assets\Resources\StartAppDataAndroid.txt" />
     <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\HSVPicker\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -454,6 +457,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{CB3B29C3-91BD-2082-2B50-FFC1ACCD403C}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{F7EB4B8A-551E-970E-25DC-4B6057497C04}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>

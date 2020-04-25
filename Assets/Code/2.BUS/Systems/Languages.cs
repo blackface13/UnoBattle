@@ -401,6 +401,14 @@ public static class Languages {
         lang[354] = "Cám ơn bình chọn của bạn";
         //=============================================
         lang[355] = "Tự động chơi (không khuyến cáo)";
+        lang[356] = "Chế độ cơ bản: ";
+        lang[357] = "Chế độ mở rộng: ";
+        lang[358] = "Tổng điểm: ";
+        lang[359] = "Thắng chế độ cơ bản: ";
+        lang[360] = "Thua chế độ cơ bản: ";
+        lang[361] = "Tỉ lệ thắng: ";
+        lang[362] = "Thắng chế độ mở rộng: ";
+        lang[363] = "Thua chế độ mở rộng: ";
 
         //Thông tin chỉ số
         lang[700] = "+{0} Sát thương vật lý";
@@ -785,6 +793,14 @@ public static class Languages {
         lang[354] = "Thanks for your vote";
         //=============================================
         lang[355] = "Auto play (not recommend)";
+        lang[356] = "Basic mode point";
+        lang[357] = "Extension mode point";
+        lang[358] = "Total point";
+        lang[359] = "Basic mode win: ";
+        lang[360] = "Basic mode lose: ";
+        lang[361] = "Ratio: ";
+        lang[362] = "Extension mode win: ";
+        lang[363] = "Extension mode lose: ";
 
         //Thông tin chỉ số
         lang[700] = "+{0} Attack physic";

@@ -2,6 +2,7 @@
 using Assets.Code._2.BUS.Misc;
 using Assets.Code._4.CORE.UnoCard;
 using Sirenix.OdinInspector;
+using StartApp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,6 +47,8 @@ namespace Assets.Code._2.BUS.FunctionsController
         [TabGroup("Setup giá trị ban đầu")]
         [Title("Hướng chơi theo kim đồng hồ")]
         public bool IsLeftToRight;//Hướng chơi bài
+
+        InterstitialAd ADSInters;
 
         private int CurentColorType = 0;//0 = đỏ, 1 = vàng, 2 = lục, 3 = lam, 4: đa năng
         private int TornadoColor = 0;//Màu của lá bài lốc xoáy
@@ -104,7 +107,7 @@ namespace Assets.Code._2.BUS.FunctionsController
             TextUI[2].text = UnoCardSystem.PlayersNumber[UnoCardSystem.PlayerNumberSlot].ToString();//Số người chơi
             ObjController[17].SetActive(true);//Hiển thị UI lựa chọn cược và người chơi
             //SetupNewBattle();
-            TextUI[11].text = Languages.lang[260] + ((GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint) != 0 ? (string.Format("{0:#,#}", (GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint))) : 0.ToString());//Update điểm số
+            GeneralFunctions(8);
         }
 
         /// <summary>
@@ -222,15 +225,21 @@ namespace Assets.Code._2.BUS.FunctionsController
         /// </summary>
         private void SetupNewBattle()
         {
+            //if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
+            ADSInters = AdSdk.Instance.CreateInterstitial();
+            ADSInters.RaiseAdLoaded += (sender, e) =>
+            {
+                //ADSInters.ShowAd("adTagIfNeeded");
+            };
+            ADSInters.LoadAd(InterstitialAd.AdType.Automatic);
+
             ObjController[21].SetActive(false);//Ẩn anim bốc bài
             EndCard = false;
             GameSystem.TotalRoundPlay++;
-            //if (GameSystem.TotalRoundPlay != 0 && GameSystem.TotalRoundPlay % 3 == 0)
-            ADS.RequestInterstitial();
+            //ADS.RequestInterstitial();
             TotalCardOriginal = GameSystem.UserPlayer.UnoTypePlay.Equals(0) ? UnoCardSystem.UnoCards.Count - UnoCardSystem.QuantityCardExtension : UnoCardSystem.UnoCards.Count;
             ObjController[16].SetActive(false);
             GameSystem.AddLoser(GameSystem.UserPlayer.UnoTypePlay);
-            //GameSystem.UpdateResourceText(TextUI[3], TextUI[11]);//Cập nhật lại tiền và kim cương
             GameSystem.DisposeAllObjectChild(ObjController[3]);
             GameSystem.DisposeAllObjectChild(ObjController[5]);
             IsLeftToRight = true;
@@ -1087,12 +1096,16 @@ namespace Assets.Code._2.BUS.FunctionsController
             IsControl = true;
             yield return null;
 
-            TextUI[11].text = Languages.lang[260] + ((GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint) != 0 ? (string.Format("{0:#,#}", (GameSystem.UserPlayer.UnoBasicPoint + GameSystem.UserPlayer.UnoExtensionPoint))) : 0.ToString());//Update điểm số
+            GeneralFunctions(8);
 
             GameSystem.ControlFunctions.PutRanking();
-            if (ADS.interstitial.IsLoaded())
+            //if (ADS.interstitial.IsLoaded())
+            //{
+            //    ADS.interstitial.Show();
+            //}
+            if (ADSInters.IsReady())
             {
-                ADS.interstitial.Show();
+                ADSInters.ShowAd();
             }
         }
 
@@ -1315,6 +1328,9 @@ namespace Assets.Code._2.BUS.FunctionsController
                     SlotCardSelected = -1;
                     ObjController[16].SetActive(false);
                     break;
+                case 8://Update điểm
+                    TextUI[11].text = Languages.lang[260] + (GameSystem.UserPlayer.UnoTypePlay.Equals(0) ? (GameSystem.UserPlayer.UnoBasicPoint > 0 ? (string.Format("{0:#,#}", GameSystem.UserPlayer.UnoBasicPoint)) : 0.ToString()) : (GameSystem.UserPlayer.UnoExtensionPoint > 0 ? (string.Format("{0:#,#}", GameSystem.UserPlayer.UnoExtensionPoint)) : 0.ToString()));//Update điểm số
+                    break;
                 default: break;
             }
         }
@@ -1352,6 +1368,7 @@ namespace Assets.Code._2.BUS.FunctionsController
                 UnoCardSystem.BetLevelSlot = 0;
             GameSystem.UserPlayer.UnoTypePlay = UnoCardSystem.BetLevelSlot;
             TextUI[1].text = UnoCardSystem.BetLevel[UnoCardSystem.BetLevelSlot].ToString();//Kiểu chơi
+            GeneralFunctions(8);
         }
 
         /// <summary>

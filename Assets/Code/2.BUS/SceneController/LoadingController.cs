@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using StartApp;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +14,13 @@ public class LoadingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //AD StarApp
+        AdSdk.Instance.SetUserConsent(
+ "pas",
+ true,
+ (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds);
 
+        //AD Admob
         ADS.Initialize();
         ADS.RequestBanner(0);
         GameSystem.AnimCurve = moveCurve;
