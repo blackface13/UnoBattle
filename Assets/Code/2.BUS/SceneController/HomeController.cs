@@ -8,6 +8,7 @@ using Assets.Code._0.DTO.Models;
 using Assets.Code._2.BUS.Misc;
 using Sirenix.OdinInspector;
 using StartApp;
+using System;
 
 public class HomeController : MonoBehaviour
 {
@@ -154,6 +155,7 @@ public class HomeController : MonoBehaviour
         if (string.IsNullOrEmpty(GameSystem.UserPlayer.UserName))
         {
             GameSystem.InitializePrefabUI(3, "InputNameCanvasUI");
+            WaitingCloseUI(3);
         }
 
         TextUI[0].text = GameSystem.UserPlayer.UserName;
@@ -221,13 +223,13 @@ public class HomeController : MonoBehaviour
         //Thua chế độ cơ bản
         BasicLoseText.text = GameSystem.UserPlayer.UnoBasicLoseRound > 0 ? (string.Format("{0:#,#}", GameSystem.UserPlayer.UnoBasicLoseRound)) : 0.ToString();
         //Tỉ lệ win chế độ cơ bản
-        BasicRatioText.text = (100 / (GameSystem.UserPlayer.UnoBasicWinRound + GameSystem.UserPlayer.UnoBasicLoseRound) * GameSystem.UserPlayer.UnoBasicWinRound).ToString() + "%";
+        BasicRatioText.text = GameSystem.UserPlayer.UnoBasicWinRound + GameSystem.UserPlayer.UnoBasicLoseRound > 0 ? (100 / (GameSystem.UserPlayer.UnoBasicWinRound + GameSystem.UserPlayer.UnoBasicLoseRound) * GameSystem.UserPlayer.UnoBasicWinRound).ToString() + " %" : "0 %";
         //Win chế độ mở rộng
         ExtensionWinText.text = GameSystem.UserPlayer.UnoExtensionWinRound > 0 ? (string.Format("{0:#,#}", GameSystem.UserPlayer.UnoExtensionWinRound)) : 0.ToString();
         //Thua chế độ mở rộng
         ExtensionLoseText.text = GameSystem.UserPlayer.UnoExtensionLoseRound > 0 ? (string.Format("{0:#,#}", GameSystem.UserPlayer.UnoExtensionLoseRound)) : 0.ToString();
         //Tỉ lệ win chế độ mở rộng
-        ExtensionRatioText.text = (100 / (GameSystem.UserPlayer.UnoExtensionWinRound + GameSystem.UserPlayer.UnoExtensionLoseRound) * GameSystem.UserPlayer.UnoExtensionWinRound).ToString() + "%";
+        ExtensionRatioText.text = GameSystem.UserPlayer.UnoExtensionWinRound + GameSystem.UserPlayer.UnoExtensionLoseRound > 0 ? (100 / (GameSystem.UserPlayer.UnoExtensionWinRound + GameSystem.UserPlayer.UnoExtensionLoseRound) * GameSystem.UserPlayer.UnoExtensionWinRound).ToString() + " %" : "0 %";
     }
 
     public void GeneralFunctions(int type)
@@ -302,6 +304,14 @@ public class HomeController : MonoBehaviour
                     SetupText();
                 }
                 break;
+            case 3://Nhập tên
+                yield return new WaitUntil(() => GameSystem.ObjectUI[type] == null);
+                //Success
+                if (GameSystem.ObjectUI[type] == null)
+                {
+                    TextUI[0].text = GameSystem.UserPlayer.UserName;
+                }
+                break;
         }
     }
 
@@ -351,6 +361,7 @@ public class HomeController : MonoBehaviour
                 WaitForEnableMoveBox();
             }
         }
+
     }
 
     /// <summary>
